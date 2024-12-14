@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* scroll-behavior: smooth;
+  overflow-y: scroll; */
+}
+
+body {
+  /* overscroll-behavior: none;
+  scroll-snap-type: y mandatory; */
+  font-family: "Outfit", serif;
+  background-color: rgb(246, 246, 242);
+  /* background-color: rgb(255, 255, 255); */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+.text-clamp-text-home {
+  font-size: clamp(1.3rem, 1.2vw, 1.8rem);
+}
+
+.text-clamp-vinculos-footer {
+  font-size: clamp(1.2rem, 1vw, 1.5rem);
+}
+
+.text-clamp-menu {
+  font-size: clamp(2rem, 3vw, 5rem);
+}
+
+.text-clamp-titles {
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+  line-height: 1.15;
+}
+
+.text-clamp-titles-lg {
+  font-size: clamp(2.5rem, 3.5vw, 5rem);
+  line-height: 1.15;
+}
+
+.text-clamp-titles-xl {
+  font-size: clamp(3.5rem, 5.5vw, 9rem);
+  line-height: 1.15;
+}
+
+.text-clamp-text-home-lg {
+  font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+  line-height: 1.25;
+}
+
+.text-clamp-titles-innerpage {
+  font-size: clamp(2.2rem, 5.5vw, 9rem);
+  line-height: 1.15;
+}
+
+.text-clamp-Subtitles-innerpage {
+  font-size: clamp(0.5rem, 1.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.puente.presentacion {
+  background-image: url("/assets/home/Selmy&David RECEPCIÓN-006.webp");
+}
+
+.puente.perfil {
+  background-image: url("/assets/home/Selmy&David RECEPCIÓN-006.webp");
+}
+
+.masonry-gallery-main-container_gallery img {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  contain: layout paint;
+  image-rendering: auto;
+}

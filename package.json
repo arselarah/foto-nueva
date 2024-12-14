@@ -6,22 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "export": "next build && next export"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "framer-motion": "^11.11.9",
+    "locomotive-scroll": "^4.1.4",
+    "next": "^15.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.0"
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/gsap": "^1.20.2",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/webpack": "^5.28.5",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.1.0",
     "postcss": "^8",
+    "prettier": "^3.4.1",
     "tailwindcss": "^3.4.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.0",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
