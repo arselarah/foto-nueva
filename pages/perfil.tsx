@@ -2,7 +2,9 @@ import Page from "@/components/page";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Cinzel, Outfit, Playfair_Display } from "next/font/google";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { projects } from "@/data";
+import Card from "@/components/Card";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -58,9 +60,10 @@ export default function Perfil() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start end", "start start"],
+    offset: ["start start", "end end"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+
+  // const scale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   return (
     <Page>
       <motion.section
@@ -203,9 +206,9 @@ export default function Perfil() {
               pt-[5rem] md:pt-[10rem]
               pb-[2rem] md:pb-[5rem] max-w-[1920px] mx-auto"
       >
-        <motion.div
+        <div
           className={`${outfit.className} font-extralight relative mx-auto 2xl:mx-0 2xl:sticky 2xl:top-1/2 2xl:-translate-y-1/2 max-w-[40rem] 2xl:pr-16 2xl:mt-[30vw] 2xl:mb-[11vw]`}
-          style={{ opacity: scrollYProgress }}
+          // style={{ opacity: scrollYProgress }}
         >
           <p
             className="
@@ -242,14 +245,17 @@ export default function Perfil() {
           >
             La historia que está detrás de tus fotografías...
           </p>
-        </motion.div>
-        <div ref={container}>
+        </div>
+        {/* <div ref={container}>
           {articles.map((article, index) => (
             <div className="main h-screen sticky top-0 flex justify-center 2xl:justify-end items-center 2xl:max-w-[50vw] left-1/2">
               <motion.div
                 key={article.id}
                 className="relative flex flex-col aspect-video bg-red-300"
-                style={{ top: `calc( -1rem + ${index * 25}px)` }}
+                style={{
+                  top: `calc( -1rem + ${index * 25}px)`,
+                  transform: `rotate(${index * 5}deg)`,
+                }}
               >
                 <Image
                   src={article.imageUrl}
@@ -261,7 +267,22 @@ export default function Perfil() {
               </motion.div>
             </div>
           ))}
-        </div>
+        </div> */}
+        <main className="relative">
+          {projects.map((project, i) => {
+            const targetScale = 1 - (projects.length - i) * 0.05;
+            return (
+              <Card
+                key={i}
+                i={i}
+                {...project}
+                progress={scrollYProgress}
+                range={[i * 0.25, 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
+        </main>
       </article>
       <article
         className="puente perfil
