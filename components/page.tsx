@@ -72,11 +72,11 @@ export default function Page({ children }: PageProps) {
   return (
     <div className="inner bg-negro">
       <motion.div
-        className="slide h-screen w-screen fixed left-0 top-0 bg-white z-10"
+        className="slide h-screen w-screen fixed left-0 top-0 bg-[#f6f6f2] z-10"
         {...anim(slide)}
       />
 
-      <motion.div className="page bg-white" {...anim(perspective)}>
+      <motion.div className="page bg-[#f6f6f2]" {...anim(perspective)}>
         <motion.div {...anim(opacity)}>{children}</motion.div>
       </motion.div>
     </div>

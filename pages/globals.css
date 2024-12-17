@@ -15,7 +15,7 @@ body {
   /* overscroll-behavior: none;
   scroll-snap-type: y mandatory; */
   font-family: "Outfit", serif;
-  background-color: rgb(246, 246, 242);
+  background-color: #f6f6f2;
   /* background-color: rgb(255, 255, 255); */
 }
 
@@ -75,7 +75,7 @@ h6 {
 }
 
 .puente.perfil {
-  background-image: url("/assets/home/Selmy&David RECEPCIÓN-006.webp");
+  background-image: url("/assets/foto_8.webp");
 }
 
 .masonry-gallery-main-container_gallery img {

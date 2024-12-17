@@ -265,7 +265,7 @@ const PresentationSection = () => {
               pt-[5rem] md:pt-[10rem]
               pb-[2rem] md:pb-[5rem]
               mx-auto
-              max-w-[1024px]
+              max-w-[1280px]
               ${playfairDisplay.className}
             `}
               >

@@ -1,10 +1,10 @@
 import Page from "@/components/page";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Cinzel, Outfit, Playfair_Display } from "next/font/google";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { projects } from "@/data";
 import Card from "@/components/Card";
+//import Image from "next/image";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -18,79 +18,61 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
-type Article = {
-  id: number; // Número de identificación único
-  title: string; // Título del artículo
-  shortText: string; // Texto breve
-  imageUrl: string; // URL de la imagen
-};
-
-const articles: Article[] = [
-  {
-    id: 1,
-    title: "Ana & Pepe",
-    shortText:
-      '"Podrán cortar todas las flores, pero no podrán detener la primavera".',
-    imageUrl: "/assets/home/ana-pepe-21.webp", // URL de la imagen
-  },
-  {
-    id: 2,
-    title: "Francisco & Mariana",
-    shortText:
-      '"Creo que lo bello no es una sustancia en sí sino tan sólo un dibujo de sombras, un juego de claroscuros producido por yuxtaposición de diferentes sustancias".',
-    imageUrl: "/assets/home/mariana-francisco-2.webp", // URL de la imagen
-  },
-  {
-    id: 3,
-    title: "Naima & Julio",
-    shortText: "“Estar contigo o no estar contigo es la medida de mi tiempo”.",
-    imageUrl: "/assets/home/foto_5.webp",
-  },
-  {
-    id: 4,
-    title: "Marlen & Rafa",
-    shortText:
-      "“La fotografía toma un instante fuera del tiempo, alterando la vida manteniéndola quieta”.",
-    imageUrl: "/assets/home/marlen-rafa-12.webp",
-  },
-  // Puedes agregar más artículos aquí
-];
-
 export default function Perfil() {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
+  const containerBridge = useRef(null);
+  const containerHero = useRef(null);
+  const { scrollYProgress: scrollYProgress1 } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: containerBridge,
+    offset: ["start end", "end start"],
+  });
+
+  const backgroundY = useTransform(scrollYProgress2, [0, 1], ["0%", "100%"]);
+
+  const { scrollYProgress: scrollYProgressHero } = useScroll({
+    target: containerHero,
+    offset: ["start end", "start start"],
+  });
+
+  const backgroundYHero = useTransform(
+    scrollYProgressHero,
+    [0, 1],
+    ["0%", "100%"]
+  );
   // const scale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   return (
     <Page>
       <motion.section
-        className='hero relative w-full min-h-[500px] h-svh overflow-hidden bg-[url("/assets/me.jpg")] bg-cover bg-center'
+        className='hero relative w-full min-h-[500px] h-svh overflow-hidden bg-[url("/assets/me.jpg")] bg-cover bg-no-repeat'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
+        style={{ backgroundPositionY: backgroundYHero }}
       >
         <div className="absolute inset-0 bg-black opacity-25 z-[9]" />
         {/* Contenido Fijo (Título) */}
         <motion.div
-          className="absolute bottom-8 z-[9] text-white w-full"
+          className="absolute bottom-[5rem] z-[9] text-white w-[90%] xl:w-fit left-1/2 -translate-x-1/2 xl:left-20 xl:-translate-x-0"
           initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
         >
           <h1
-            className={`text-clamp-titles-innerpage mt-4 text-nowrap text-center ${cinzel.className} font-light uppercase tracking-[.5rem]`}
+            className={`text-clamp-titles-innerpage mt-4 text-nowrap text-center ${playfairDisplay.className} font-light`}
           >
             Arse Lara
           </h1>
-          <div className="relative w-[30%] max-w-[520px] flex flex-row justify-around mx-auto">
+          <div className="relative w-[full flex flex-row justify-around mx-auto">
             {["F", "O", "T", "O", "G", "R", "A", "F", "Í", "A"].map(
               (text, idx) => (
                 <p
                   key={idx}
-                  className={`${outfit.className} text-clamp-Subtitles-innerpage font-thin tracking-[] text-center`}
+                  className={`${playfairDisplay.className} text-clamp-Subtitles-innerpage font-thin tracking-[] text-center`}
                 >
                   {text}
                 </p>
@@ -100,7 +82,7 @@ export default function Perfil() {
           </div>
         </motion.div>
       </motion.section>
-      <section>
+      <section ref={containerHero}>
         <div>
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -115,7 +97,7 @@ export default function Perfil() {
               pt-[5rem] md:pt-[10rem]
               pb-[2rem] md:pb-[5rem]
               mx-auto
-              max-w-[1024px]
+              max-w-[1280px]
               ${playfairDisplay.className}
             `}
           >
@@ -123,84 +105,6 @@ export default function Perfil() {
           </motion.h2>
         </div>
       </section>
-      {/* <section
-        className="
-      relative
-      w-full
-      min-h-[800px]
-      h-auto
-      flex
-      flex-col xl:flex-row flex-wrap
-      xl:max-w-[100rem]
-      mx-auto
-      px-6 xl:px-20 py-[5rem] xl:py-[10rem]
-      justify-center
-      items-center
-      gap-40
-    "
-      >
-        <div
-          className="
-        w-full xl:w-[50%]
-        flex
-        flex-col
-        justify-center
-      "
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`${outfit.className} font-extralight`}
-          >
-            <p
-              className="
-              text-clamp-text-home
-              text-gray-600
-              leading-relaxed
-              mb-4
-              xl:max-w-[640px]
-            "
-            >
-              Licenciado en Administración de Empresas, diseñador y programador
-              web de medio tiempo. Algo de documentalista, fotógrafo de
-              retratos, bodas y otros eventos.
-            </p>
-            <p
-              className="
-              text-clamp-text-home
-              text-gray-600
-              leading-relaxed
-              mb-4
-              xl:max-w-[640px]
-            "
-            >
-              Pero sobre todo me gusta mirar a los ojos a quien estoy
-              fotografiando y sentir que puedo conocer más de la persona que
-              tengo frente a mí.
-            </p>
-            <p
-              className="
-              text-clamp-text-home
-              text-gray-600
-              leading-relaxed
-              xl:max-w-[640px]
-            "
-            >
-              La historia que está detrás de tus fotografías...
-            </p>
-          </motion.div>
-        </div>
-
-        <div
-          className="
-        relative
-        w-full xl:w-[50%]
-        max-h-[960px]
-      "
-        ></div>
-      </section> */}
       <article
         className="relative px-6 md:px-20
               pt-[5rem] md:pt-[10rem]
@@ -246,28 +150,6 @@ export default function Perfil() {
             La historia que está detrás de tus fotografías...
           </p>
         </div>
-        {/* <div ref={container}>
-          {articles.map((article, index) => (
-            <div className="main h-screen sticky top-0 flex justify-center 2xl:justify-end items-center 2xl:max-w-[50vw] left-1/2">
-              <motion.div
-                key={article.id}
-                className="relative flex flex-col aspect-video bg-red-300"
-                style={{
-                  top: `calc( -1rem + ${index * 25}px)`,
-                  transform: `rotate(${index * 5}deg)`,
-                }}
-              >
-                <Image
-                  src={article.imageUrl}
-                  alt={article.title}
-                  width={960}
-                  height={640}
-                  className="aspect-video  object-cover"
-                />
-              </motion.div>
-            </div>
-          ))}
-        </div> */}
         <main className="relative">
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
@@ -276,7 +158,7 @@ export default function Perfil() {
                 key={i}
                 i={i}
                 {...project}
-                progress={scrollYProgress}
+                progress={scrollYProgress1}
                 range={[i * 0.25, 1]}
                 targetScale={targetScale}
               />
@@ -284,17 +166,29 @@ export default function Perfil() {
           })}
         </main>
       </article>
-      <article
+      <motion.article
+        ref={containerBridge}
         className="puente perfil
           relative
           w-full
           aspect-square md:aspect-video
-          bg-center
+          
           bg-no-repeat
           bg-cover
           bg-negro
+          overflow-hidden
+          
         "
+        style={{ backgroundPositionY: backgroundY }}
       >
+        {/* <motion.div className="w-full h-full">
+          <Image
+            src={"/assets/home/marlen-rafa-12.webp"}
+            fill
+            alt={"imagen top"}
+            className="object-cover w-full h-full"
+          />
+        </motion.div> */}
         <div
           className="
           absolute
@@ -304,7 +198,7 @@ export default function Perfil() {
           bg-negro/55
           "
         ></div>
-      </article>
+      </motion.article>
     </Page>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 
 export type CardProps = {
   i: number; // Índice para manejar la posición
@@ -20,10 +20,10 @@ export default function Card({
   targetScale,
 }: CardProps) {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "start start"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start end", "start start"],
+  // });
   const scale = useTransform(progress, range, [1, targetScale]);
   return (
     <>
