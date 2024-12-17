@@ -82,15 +82,15 @@ export default function Contacto() {
     <>
       <Page>
         <motion.section
-          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden bg-transparent flex justify-center items-center"
+          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden bg-transparent flex justify-center items-center border-b-[1px] border-stone-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="absolute inset-0 bg-negro opacity-25 z-[9]" />
+          <div className="absolute inset-0 bg-transparent opacity-25 z-[9]" />
           {/* Contenido Fijo (Título) */}
           <motion.div
-            className="absolute bottom-[5rem] z-[9] text-white w-[90%] xl:w-fit left-1/2 -translate-x-1/2 xl:left-20 xl:-translate-x-0"
+            className="absolute bottom-[5rem] z-[9] text-black w-fit xl:left-20 "
             initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
@@ -275,7 +275,7 @@ export default function Contacto() {
               <div className="grow w-full text-center pt-8">
                 <label
                   htmlFor="message"
-                  className="pr-2 block text-nowrap text-clamp-text-home text-gray-600 leading-relaxed mb-4 font-extralight"
+                  className="pr-2 block text-clamp-text-home text-gray-600 leading-relaxed mb-4 font-extralight"
                 >
                   Cuéntame más sobre el evento que planeas
                 </label>

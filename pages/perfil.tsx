@@ -48,7 +48,7 @@ export default function Perfil() {
   return (
     <Page>
       <motion.section
-        className='hero relative w-full min-h-[500px] h-svh overflow-hidden bg-[url("/assets/me.jpg")] bg-cover bg-no-repeat'
+        className='hero relative w-full min-h-[500px] h-svh overflow-hidden bg-[url("/assets/me.jpg")] bg-cover bg-no-repeat bg-center flex justify-center xl:justify-normal'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -57,7 +57,7 @@ export default function Perfil() {
         <div className="absolute inset-0 bg-black opacity-25 z-[9]" />
         {/* Contenido Fijo (Título) */}
         <motion.div
-          className="absolute bottom-[5rem] z-[9] text-white w-[90%] xl:w-fit left-1/2 -translate-x-1/2 xl:left-20 xl:-translate-x-0"
+          className="absolute bottom-[5rem] z-[9] text-white w-fit xl:left-20"
           initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
@@ -67,7 +67,7 @@ export default function Perfil() {
           >
             Arse Lara
           </h1>
-          <div className="relative w-[full flex flex-row justify-around mx-auto">
+          <div className="relative w-full flex flex-row justify-around mx-auto">
             {["F", "O", "T", "O", "G", "R", "A", "F", "Í", "A"].map(
               (text, idx) => (
                 <p

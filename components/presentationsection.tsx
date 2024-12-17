@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -70,25 +75,13 @@ const PresentationSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Configura la animación parallax
-    const parallaxEffect = gsap.to(".puente", {
-      backgroundPositionY: "-50%", // Controla el valor inicial
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".puente",
-        start: "top bottom", // Inicia cuando el elemento es visible en el viewport
-        end: "bottom top", // Termina cuando el elemento sale del viewport
-        scrub: 3, // La animación sigue el scroll del usuario
-      },
-    });
+  const containerBridge = useRef(null);
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: containerBridge,
+    offset: ["start end", "end start"],
+  });
 
-    // Limpieza de la animación al desmontar el componente
-    return () => {
-      parallaxEffect?.scrollTrigger?.kill();
-      parallaxEffect.kill();
-    };
-  }, []);
+  const backgroundY = useTransform(scrollYProgress2, [0, 1], ["-50%", "100%"]);
 
   return (
     <>
@@ -294,7 +287,8 @@ const PresentationSection = () => {
             </div>
           </div>
         </article>
-        <article
+        <motion.article
+          ref={containerBridge}
           className="puente presentacion
           relative
           w-full
@@ -304,6 +298,7 @@ const PresentationSection = () => {
           bg-cover
           bg-negro
         "
+          style={{ backgroundPositionY: backgroundY }}
         >
           <div
             className="
@@ -325,7 +320,7 @@ const PresentationSection = () => {
             max-w-[624px]
           '>Momentos maravillosos</h2> */}
           </div>
-        </article>
+        </motion.article>
       </section>
     </>
   );

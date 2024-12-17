@@ -17,16 +17,12 @@ export default function Page({ children }: PageProps) {
 
   const opacity: Variants = {
     initial: {
-      scale: 1,
-      y: 0,
+      opacity: 1,
     },
     enter: {
-      scale: 1,
-      y: 0,
+      opacity: 1,
     },
     exit: {
-      scale: 0.9,
-      y: -150,
       opacity: 0.5,
       transition: {
         duration: 1.8,
@@ -52,17 +48,13 @@ export default function Page({ children }: PageProps) {
   };
   const perspective: Variants = {
     initial: {
-      scale: 1,
-      y: 0,
+      opacity: 1,
     },
     enter: {
-      scale: 1,
-      y: 0,
+      opacity: 1,
     },
     exit: {
-      scale: 0.9,
-      y: -150,
-      opacity: 0.5,
+      opacity: 0.1,
       transition: {
         duration: 1.8,
         ease: [0.76, 0, 0.24, 1],

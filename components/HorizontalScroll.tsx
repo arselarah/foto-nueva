@@ -169,7 +169,7 @@ function HorizontalScroll() {
                       </p>
                       <Link
                         href={article.imageUrl}
-                        className="text-white pt-4 decoration-white font-bold  inline-block"
+                        className="relative text-white pt-4 font-extralight inline-block link-decorado text-xl"
                       >
                         Ver más
                       </Link>
