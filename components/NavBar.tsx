@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from "next/image";
 import Link from "next/link";
 import { Outfit, Cinzel } from "next/font/google";
 
@@ -37,10 +37,12 @@ const Navbar = () => {
         <div className="w-full px-6 xl:px-20 h-[60px] flex items-center justify-between">
           <div className="logo-prueba w-[250px] relative z-20 flex flex-row justify-start">
             <Link className="pr-4" href="/" passHref>
-              <img
-                className="w-[40px] h-[40px]"
+              <Image
+                className=""
+                width={40}
+                height={40}
                 src="/assets/logo-white.svg"
-                alt=""
+                alt="Arse Lara Fotografía Logo"
               />
             </Link>
             <div className="hidden md:block">

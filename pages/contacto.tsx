@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Page from "@/components/page";
 import { Cinzel, Outfit, Playfair_Display } from "next/font/google";
 import emailjs from "@emailjs/browser";
+import Image from "next/image";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -78,6 +79,18 @@ export default function Contacto() {
 
   const backgroundY = useTransform(scrollYProgress2, [0, 1], ["0%", "100%"]);
 
+  const containerRotate = useRef(null);
+  const { scrollYProgress: scrollYProgressRotate } = useScroll({
+    target: containerRotate,
+    offset: ["start end", "end start"],
+  });
+
+  const rotateLogo = useTransform(
+    scrollYProgressRotate,
+    [0, 1],
+    ["0deg", "360deg"]
+  );
+
   return (
     <>
       <Page>
@@ -90,7 +103,7 @@ export default function Contacto() {
           <div className="absolute inset-0 bg-transparent opacity-25 z-[9]" />
           {/* Contenido Fijo (Título) */}
           <motion.div
-            className="absolute bottom-[5rem] z-[9] text-black w-fit xl:left-20 "
+            className="absolute bottom-[5rem] z-[9] text-black w-fit"
             initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
@@ -102,7 +115,22 @@ export default function Contacto() {
             </h1>
           </motion.div>
         </motion.section>
-        <section>
+
+        <section className="relative">
+          <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[4rem] h-[4rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
+            <motion.div
+              style={{ rotate: rotateLogo }}
+              className="relative w-full h-auto flex justify-center items-center"
+            >
+              <Image
+                className="w-4/5"
+                width={320}
+                height={320}
+                src="/assets/logo-black.svg"
+                alt="Arse Lara Fotografía Logo"
+              />
+            </motion.div>
+          </div>
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
@@ -125,7 +153,10 @@ export default function Contacto() {
             </motion.h2>
           </div>
         </section>
-        <section>
+        <section
+          ref={containerRotate}
+          className="border-b-[1px] border-stone-400"
+        >
           <article
             className="
       relative
@@ -314,8 +345,22 @@ export default function Contacto() {
               </div>
             )}
           </article>
+          <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[4rem] h-[4rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
+            <motion.div
+              style={{ rotate: rotateLogo }}
+              className="relative w-full h-auto flex justify-center items-center"
+            >
+              <Image
+                className="w-4/5"
+                width={320}
+                height={320}
+                src="/assets/logo-black.svg"
+                alt="Arse Lara Fotografía Logo"
+              />
+            </motion.div>
+          </div>
         </section>
-        <motion.article
+        {/* <motion.article
           ref={containerBridge}
           className="puente perfil
           relative
@@ -330,14 +375,7 @@ export default function Contacto() {
         "
           style={{ backgroundPositionY: backgroundY }}
         >
-          {/* <motion.div className="w-full h-full">
-          <Image
-            src={"/assets/home/marlen-rafa-12.webp"}
-            fill
-            alt={"imagen top"}
-            className="object-cover w-full h-full"
-          />
-        </motion.div> */}
+          
           <div
             className="
           absolute
@@ -347,7 +385,7 @@ export default function Contacto() {
           bg-negro/55
           "
           ></div>
-        </motion.article>
+        </motion.article> */}
       </Page>
     </>
   );
