@@ -33,7 +33,7 @@ export default function Card({
       >
         <motion.div
           style={{ scale, top: `calc(-5% + ${i * 25}px)` }}
-          className="relative w-full 2xl:max-w-[50%] flex justify-center"
+          className="relative w-full 2xl:max-w-[50%] flex flex-col justify-center bg-white px-8 pt-8 pb-8 shadow-[0_.5rem_1rem_rgba(0,0,0,0.15)]"
         >
           <Image
             src={imageUrl}
@@ -42,6 +42,7 @@ export default function Card({
             height={640}
             className="aspect-video  object-cover"
           />
+          <p className="mt-4 text-xl text-center italic">{title}</p>
         </motion.div>
       </div>
     </>

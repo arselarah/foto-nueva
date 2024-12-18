@@ -68,7 +68,10 @@ export default function Page({ children }: PageProps) {
         {...anim(slide)}
       />
 
-      <motion.div className="page bg-[#f6f6f2]" {...anim(perspective)}>
+      <motion.div
+        className="page relative bg-[#f6f6f2] z-[1]"
+        {...anim(perspective)}
+      >
         <motion.div {...anim(opacity)}>{children}</motion.div>
       </motion.div>
     </div>

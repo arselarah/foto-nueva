@@ -95,7 +95,7 @@ export default function Contacto() {
     <>
       <Page>
         <motion.section
-          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden bg-transparent flex justify-center items-center border-b-[1px] border-stone-400"
+          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden flex justify-center items-center border-b-[1px] border-stone-400 bg-[#f6f6f2] z-[1]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -117,13 +117,13 @@ export default function Contacto() {
         </motion.section>
 
         <section className="relative">
-          <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[4rem] h-[4rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
+          <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[6rem] h-[6rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
             <motion.div
               style={{ rotate: rotateLogo }}
               className="relative w-full h-auto flex justify-center items-center"
             >
               <Image
-                className="w-4/5"
+                className="w-3/4"
                 width={320}
                 height={320}
                 src="/assets/logo-black.svg"
@@ -153,10 +153,7 @@ export default function Contacto() {
             </motion.h2>
           </div>
         </section>
-        <section
-          ref={containerRotate}
-          className="border-b-[1px] border-stone-400"
-        >
+        <section ref={containerRotate} className="bg-[#f6f6f2] z-[1]">
           <article
             className="
       relative
@@ -345,7 +342,7 @@ export default function Contacto() {
               </div>
             )}
           </article>
-          <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[4rem] h-[4rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
+          {/* <div className="spinnin-logo absolute left-1/2 -translate-x-1/2 w-[4rem] h-[4rem] z-10 -translate-y-1/2 bg-[#f6f6f2] rounded-full p-2 flex justify-center items-center">
             <motion.div
               style={{ rotate: rotateLogo }}
               className="relative w-full h-auto flex justify-center items-center"
@@ -358,7 +355,7 @@ export default function Contacto() {
                 alt="Arse Lara Fotografía Logo"
               />
             </motion.div>
-          </div>
+          </div> */}
         </section>
         {/* <motion.article
           ref={containerBridge}

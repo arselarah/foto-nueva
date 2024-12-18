@@ -287,7 +287,7 @@ const PresentationSection = () => {
             </div>
           </div>
         </article>
-        <motion.article
+        {/* <motion.article
           ref={containerBridge}
           className="puente presentacion
           relative
@@ -309,18 +309,8 @@ const PresentationSection = () => {
           bg-negro/55
           "
           >
-            {/* <h2 className='
-            absolute
-            right-0
-            top-1/4
-            text-clamp-titles-lg
-            text-white
-            px-6 md:px-20
-            pt-[5rem] md:pt-[10rem]
-            max-w-[624px]
-          '>Momentos maravillosos</h2> */}
           </div>
-        </motion.article>
+        </motion.article> */}
       </section>
     </>
   );

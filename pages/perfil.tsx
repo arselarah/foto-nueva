@@ -166,7 +166,7 @@ export default function Perfil() {
           })}
         </main>
       </article>
-      <motion.article
+      {/* <motion.article
         ref={containerBridge}
         className="puente perfil
           relative
@@ -181,14 +181,6 @@ export default function Perfil() {
         "
         style={{ backgroundPositionY: backgroundY }}
       >
-        {/* <motion.div className="w-full h-full">
-          <Image
-            src={"/assets/home/marlen-rafa-12.webp"}
-            fill
-            alt={"imagen top"}
-            className="object-cover w-full h-full"
-          />
-        </motion.div> */}
         <div
           className="
           absolute
@@ -198,7 +190,7 @@ export default function Perfil() {
           bg-negro/55
           "
         ></div>
-      </motion.article>
+      </motion.article> */}
     </Page>
   );
 }

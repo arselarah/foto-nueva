@@ -32,7 +32,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 z-50 bg-transparent bg-clip-text  text-white w-full h-fit mix-blend-difference flex flex-row py-5"
         initial={{ opacity: 0, y: -50, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
       >
         <div className="w-full px-6 xl:px-20 h-[60px] flex items-center justify-between">
           <div className="logo-prueba w-[250px] relative z-20 flex flex-row justify-start">
@@ -75,7 +75,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.3 }}
                     >
                       CERRAR
                     </motion.p>
@@ -86,7 +86,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.3 }}
                     >
                       MENÚ
                     </motion.p>
@@ -134,7 +134,7 @@ const Navbar = () => {
     }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: menuOpen ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         onAnimationComplete={() => setLinksVisible(menuOpen)}
       >
         {linksVisible &&
