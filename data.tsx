@@ -22,3 +22,28 @@ export const projects: Project[] = [
   },
   // Puedes agregar más artículos aquí
 ];
+
+export type Historia = {
+  titleHc: string; // Título del artículo
+  imageUrlHc: string; // URL de la imagen
+};
+
+export const historiasCompletas: Historia[] = [
+  {
+    titleHc: "Ana & Pepe",
+    imageUrlHc: "/assets/historias/ana-pepe/ana-pepe-1.jpg", // URL de la imagen
+  },
+  {
+    titleHc: "Francisco & Mariana",
+    imageUrlHc: "/assets/home/mariana-francisco-2.webp", // URL de la imagen
+  },
+  {
+    titleHc: "Naima & Julio",
+    imageUrlHc: "/assets/home/foto_5.webp",
+  },
+  {
+    titleHc: "Marlen & Rafa",
+    imageUrlHc: "/assets/home/marlen-rafa-12.webp",
+  },
+  // Puedes agregar más artículos aquí
+];

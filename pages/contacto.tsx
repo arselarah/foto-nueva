@@ -153,7 +153,7 @@ export default function Contacto() {
             </motion.h2>
           </div>
         </section>
-        <section ref={containerRotate} className="bg-[#f6f6f2] z-[1]">
+        <section ref={containerRotate} className="bg-[#f6f6f2] z-[1] pb-[10%]">
           <article
             className="
       relative

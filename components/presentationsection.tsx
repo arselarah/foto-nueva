@@ -11,6 +11,7 @@ import { gsap } from "gsap";
 import { Outfit, Playfair_Display } from "next/font/google";
 import MasonryHome from "./MasonryHome";
 import HorizontalScroll from "./HorizontalScroll";
+import { historia, Historia } from "@/data/historias";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -27,14 +28,14 @@ const images: string[] = [
   "/assets/slider_home/foto_6.webp",
 ];
 
-const historias: string[] = [
-  "/Ana&Pepe",
-  "/assets/slider_home/foto_2.webp",
-  "/assets/slider_home/foto_3.webp",
-  "/assets/slider_home/foto_4.webp",
-  "/assets/slider_home/foto_5.webp",
-  "/assets/slider_home/foto_6.webp",
-];
+// const historias: string[] = [
+//   "/Ana&Pepe",
+//   "/assets/slider_home/foto_2.webp",
+//   "/assets/slider_home/foto_3.webp",
+//   "/assets/slider_home/foto_4.webp",
+//   "/assets/slider_home/foto_5.webp",
+//   "/assets/slider_home/foto_6.webp",
+// ];
 
 const PresentationSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -200,12 +201,12 @@ const PresentationSection = () => {
             overflow-hidden
             "
               >
-                <Link href={`/historias${historias[currentIndex]}`}>
-                  <Image
-                    src={images[currentIndex]}
-                    alt={`Slide ${currentIndex + 1}`}
-                    fill
-                    className="
+                {/* <Link href={`/historias${historias[currentIndex]}`}> */}
+                <Image
+                  src={images[currentIndex]}
+                  alt={`Slide ${currentIndex + 1}`}
+                  fill
+                  className="
               relative
               inset-0
               w-full
@@ -215,9 +216,9 @@ const PresentationSection = () => {
               transition
               duration-700
               ease-in-out"
-                    priority
-                  />
-                </Link>
+                  priority
+                />
+                {/* </Link> */}
               </motion.div>
             </AnimatePresence>
           </motion.div>

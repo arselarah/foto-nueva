@@ -32,7 +32,7 @@ export default function Card({
         className="h-screen flex flex-col justify-center items-end sticky top-0"
       >
         <motion.div
-          style={{ scale, top: `calc(-5% + ${i * 25}px)` }}
+          style={{ scale, top: `calc(-5% + ${i * 3}rem)` }}
           className="relative w-full 2xl:max-w-[50%] flex flex-col justify-center bg-white px-8 pt-8 pb-8 shadow-[0_.5rem_1rem_rgba(0,0,0,0.15)]"
         >
           <Image
@@ -40,7 +40,7 @@ export default function Card({
             alt={title}
             width={960}
             height={640}
-            className="aspect-video  object-cover"
+            className="aspect-square object-cover"
           />
           <p className="mt-4 text-xl text-center italic">{title}</p>
         </motion.div>
