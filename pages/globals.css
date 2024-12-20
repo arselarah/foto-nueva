@@ -4,6 +4,8 @@
 
 * {
   box-sizing: border-box;
+  /* backface-visibility: hidden;
+  transform: translateZ(0); */
 }
 
 html {
@@ -106,4 +108,45 @@ h6 {
 
 footer {
   clip-path: ellipse(120% 100% at 50% 100%);
+}
+
+.carrusel {
+  /* background-color: bisque; */
+  /* height: 500vh; */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.contenedor {
+  /* height: 100vh; */
+  /* position: sticky; */
+  /* top: 0; */
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* overflow: hidden; */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.imagenes {
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  /* grid-template-rows: 1fr; */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.imagenItem {
+  position: relative;
+  height: 100dvh;
+  width: 100dvw;
+  object-fit: cover;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Clase personalizada para la transición con prefijo */
+.transition-all-webkit {
+  @apply transition-all duration-1000; /* Clase estándar de Tailwind */
+  -webkit-transition: all 1000ms; /* Prefijo manual */
 }

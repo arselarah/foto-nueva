@@ -71,13 +71,13 @@ export default function Contacto() {
         }
       );
   };
-  const containerBridge = useRef(null);
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
-    target: containerBridge,
-    offset: ["start end", "end start"],
-  });
+  // const containerBridge = useRef(null);
+  // const { scrollYProgress: scrollYProgress2 } = useScroll({
+  //   target: containerBridge,
+  //   offset: ["start end", "end start"],
+  // });
 
-  const backgroundY = useTransform(scrollYProgress2, [0, 1], ["0%", "100%"]);
+  // const backgroundY = useTransform(scrollYProgress2, [0, 1], ["0%", "100%"]);
 
   const containerRotate = useRef(null);
   const { scrollYProgress: scrollYProgressRotate } = useScroll({

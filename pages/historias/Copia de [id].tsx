@@ -37,7 +37,12 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
     offset: ["start start", "end start"],
   });
 
-  const titles = useTransform(scrollYProgressHero, [0, 1], ["0%", "10%"]);
+  // const titles = useTransform(scrollYProgressHero, [0, 1], ["0%", "10%"]);
+  const titles = useTransform(scrollYProgressHero, [0, 1], [0, 100]);
+  const roundedScrollHero = useTransform(
+    titles,
+    (value: number) => `${Math.round(value)}px`
+  );
 
   const carruselRef = useRef(null);
   const { scrollYProgress: scrollCarrusel } = useScroll({
@@ -46,17 +51,21 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
   const x = useTransform(scrollCarrusel, [0, 1], ["0%", "-75%"]);
 
   const positionRef = useRef(null);
+
+  // Configuración del scroll
   const { scrollYProgress: scrollPositioning } = useScroll({
     target: positionRef,
     offset: ["start end", "end start"],
   });
 
-  const positionChanger = useTransform(
-    scrollPositioning,
-    [0, 1],
-    ["0%", "-10%"]
-  );
+  // Transformar el progreso del scroll (numérico)
+  const positionChanger = useTransform(scrollPositioning, [0, 1], [0, -100]);
 
+  // Redondear el resultado
+  const roundedPositionChanger = useTransform(
+    positionChanger,
+    (value: number) => `${Math.round(value)}px`
+  );
   // const positionChanger2 = useTransform(
   //   scrollPositioning,
   //   [0, 1],
@@ -98,10 +107,14 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
 
           <motion.div className="absolute w-full bottom-[10%] text-center bg-transparent">
             <motion.div
-              style={{ marginBottom: titles, mixBlendMode: "difference" }}
+              style={{
+                marginBottom: roundedScrollHero,
+                mixBlendMode: "difference",
+              }}
               initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
+              className="backface-hidden translate-z-0"
             >
               <h1 className="text-clamp-titles-lg text-white">
                 {historia.title}
@@ -131,8 +144,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
         >
           <div className="relative flex flex-nowrap gap-8 flex-col xl:flex-row w-full">
             <motion.div
-              style={{ marginTop: positionChanger }}
-              className="relative"
+              style={{ marginTop: roundedPositionChanger }}
+              className="relative transition-all duration-500 backface-hidden translate-z-0"
             >
               <Image
                 src={historia.imageUrl2}
@@ -155,7 +168,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               />
             </motion.div>
             <motion.div
-              style={{ marginTop: positionChanger3 }}
+              // style={{ marginTop: positionChanger3 }}
               className="relative"
             >
               <Image

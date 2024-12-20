@@ -117,20 +117,20 @@ function HorizontalScroll() {
                       whileInView={{ opacity: 1, y: 0 }} // Cuando entra al viewport
                       viewport={{ once: true }} // Configuración del viewport
                       transition={{ duration: 0.8, ease: "easeOut" }} // Duración y tipo de transición
-                      className="absolute bottom-[5%] lg:bottom-[10%] left-[5%] lg:left-[10%] flex flex-col max-w-[480px] px-0 md:pr-5 pt-4 md:pt-0 pb-8 md:pb-0"
+                      className="absolute bottom-[5%] lg:bottom-[10%] left-[5%] lg:left-[10%] flex flex-col max-w-[480px] px-0 md:pr-5 pt-4 md:pt-0 pb-8 md:pb-0 bg-transparent"
                     >
                       <h3
-                        className={`text-white text-clamp-titles ${playfairDisplay.className}`}
+                        className={`text-white text-clamp-titles mix-blend-difference ${playfairDisplay.className}`}
                       >
                         {historia.title}
                       </h3>
                       <div className={`${outfit.className}`}>
-                        <p className="text-white text-clamp-text-home font-extralight pt-4">
+                        <p className="text-white text-clamp-text-home font-extralight pt-4 mix-blend-difference">
                           {historia.shortText}
                         </p>
                         <Link
                           href={`/historias/${historia.url}`}
-                          className="relative text-white pt-4 font-extralight inline-block link-decorado text-xl"
+                          className="relative text-white pt-4 font-extralight inline-block link-decorado text-xl mix-blend-difference"
                         >
                           Ver más
                         </Link>

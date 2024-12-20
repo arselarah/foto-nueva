@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -31,33 +32,31 @@ const config: Config = {
       },
       aspectRatio: {
         "2/3": "2 / 3",
+        landscape: "3 / 2",
       },
     },
     screens: {
-      // Mover 'screens' fuera de 'extend'
       xsm: "480px",
-      // => @media (min-width: 640px) { ... }
-
       sm: "640px",
-      // => @media (min-width: 640px) { ... }
-
       md: "768px",
-      // => @media (min-width: 768px) { ... }
-
       lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
       lgx: "1080px",
-      // => @media (min-width: 1080px) { ... }
-
       xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-
       "2xl": "1536px",
-      // => @media (min-width: 1536px) { ... }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        ".backface-hidden": {
+          backfaceVisibility: "hidden",
+        },
+        ".translate-z-0": {
+          transform: "translateZ(0)",
+        },
+      });
+    },
+  ],
 };
 
 export default config;

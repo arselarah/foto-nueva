@@ -35,6 +35,13 @@ export type Historia = {
   title: string; // Título del artículo
   shortText: string; // Texto breve
   imageUrl: string; // URL de la imagen
+  imageUrl2: string; // URL de la imagen
+  imageUrl3: string; // URL de la imagen
+  imageUrl4: string; // URL de la imagen
+  imageUrl5: string; // URL de la imagen
+  imageUrl6: string; // URL de la imagen
+  imageUrl7: string; // URL de la imagen
+  imageUrl8: string; // URL de la imagen
   url: string; // URL
 };
 
@@ -46,6 +53,13 @@ export const historia: Historia[] = [
     shortText:
       '"Podrán cortar todas las flores, pero no podrán detener la primavera".',
     imageUrl: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl2: "/assets/historias/ana&pepe/ana-pepe-11.jpeg", // URL de la imagen
+    imageUrl3: "/assets/historias/ana&pepe/ana-pepe-4.jpeg", // URL de la imagen
+    imageUrl4: "/assets/historias/ana&pepe/ana-pepe-14.jpeg", // URL de la imagen
+    imageUrl5: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl6: "/assets/historias/ana&pepe/ana-pepe-13.jpeg", // URL de la imagen
+    imageUrl7: "/assets/historias/ana&pepe/ana-pepe-9.jpeg", // URL de la imagen
+    imageUrl8: "/assets/historias/ana&pepe/ana-pepe-19.jpeg", // URL de la imagen
     url: "boda-ana-pepe",
   },
   {
@@ -54,6 +68,13 @@ export const historia: Historia[] = [
     shortText:
       '"Creo que lo bello no es una sustancia en sí sino tan sólo un dibujo de sombras, un juego de claroscuros producido por yuxtaposición de diferentes sustancias".',
     imageUrl: "/assets/historias/francisco&mariana/mariana-francisco-5.jpg", // URL de la imagen
+    imageUrl2: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl3: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl4: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl5: "/assets/historias/ana&pepe/ana-pepe-14.jpeg", // URL de la imagen
+    imageUrl6: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl7: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl8: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
     url: "boda-francisco-mariana",
   },
   {
@@ -61,6 +82,13 @@ export const historia: Historia[] = [
     title: "Naima & Julio",
     shortText: "“Estar contigo o no estar contigo es la medida de mi tiempo”.",
     imageUrl: "/assets/historias/naima&julio/naima-julio-4.jpeg",
+    imageUrl2: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl3: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl4: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl5: "/assets/historias/ana&pepe/ana-pepe-14.jpeg", // URL de la imagen
+    imageUrl6: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl7: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl8: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
     url: "boda-naima-julio",
   },
   {
@@ -69,6 +97,13 @@ export const historia: Historia[] = [
     shortText:
       "“La fotografía toma un instante fuera del tiempo, alterando la vida manteniéndola quieta”.",
     imageUrl: "/assets/home/marlen-rafa-12.webp",
+    imageUrl2: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl3: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl4: "/assets/historias/ana&pepe/ana-pepe-1.jpeg", // URL de la imagen
+    imageUrl5: "/assets/historias/ana&pepe/ana-pepe-14.jpeg", // URL de la imagen
+    imageUrl6: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl7: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
+    imageUrl8: "/assets/historias/ana&pepe/ana-pepe-16.jpeg", // URL de la imagen
     url: "boda-marlen-rafa",
   },
   // Puedes agregar más artículos aquí
