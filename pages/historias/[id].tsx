@@ -169,15 +169,15 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
           </div>
         </section>
         <section
-          className="carrusel h-[500dvh] scroll-smooth"
+          className="carrusel h-[500dvh] scroll-smooth will-change-auto snap-x snap-mandatory "
           ref={carruselRef}
         >
-          <div className="contenedor h-[100dvh] sticky top-0 flex justify-start overflow-hidden ">
+          <div className="contenedor h-[100dvh] sticky top-0 flex justify-start overflow-hidden">
             <motion.div
-              className="imagenes relative w-[400dvw] grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[1fr]"
+              className="imagenes relative grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[1fr]"
               style={{ x }}
             >
-              <div className="imagenItem flex justify-center items-center relative">
+              <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
                   src={historia.imageUrl5}
                   alt={`${historia.title} 5`}
@@ -187,7 +187,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
                   className=" object-cover max-w-[80%] aspect-landscape"
                 />
               </div>
-              <div className="imagenItem flex justify-center items-center relative">
+              <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
                   src={historia.imageUrl6}
                   alt={`${historia.title} 6`}
@@ -197,7 +197,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
                   className=" object-cover max-w-[80%] aspect-landscape"
                 />
               </div>
-              <div className="imagenItem flex justify-center items-center relative">
+              <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
                   src={historia.imageUrl7}
                   alt={`${historia.title} 7`}
@@ -207,7 +207,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
                   className=" object-cover max-w-[80%] aspect-landscape"
                 />
               </div>
-              <div className="imagenItem flex justify-center items-center relative">
+              <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
                   src={historia.imageUrl8}
                   alt={`${historia.title} 8`}
@@ -220,7 +220,42 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             </motion.div>
           </div>
         </section>
-        {/* Aquí puedes agregar más detalles como una galería de fotos si lo deseas */}
+        <section
+          className={`relative px-6 md:px-20 pt-[5rem] md:pt-[10rem] pb-[10%] `}
+        >
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 grid-rows-4 lg:grid-rows-2 gap-8">
+            <div className="relative col-start-1 col-span-1 row-span-2">
+              <Image
+                src={historia.imageUrl9}
+                alt={`${historia.title} 9`}
+                width={1920}
+                height={1080}
+                // fill
+                className=" object-cover aspect-2/3"
+              />
+            </div>
+            <div className="relative row-start-3 lg:row-start-1 lg:col-start-2 row-span-1">
+              <Image
+                src={historia.imageUrl10}
+                alt={`${historia.title} 10`}
+                // width={1920}
+                // height={1080}
+                fill
+                className=" object-cover aspect-landscape"
+              />
+            </div>
+            <div className="relative row-start-4 lg:row-start-2 row-span-1 lg:col-start-2">
+              <Image
+                src={historia.imageUrl11}
+                alt={`${historia.title} 11`}
+                // width={1920}
+                // height={1080}
+                fill
+                className=" object-cover aspect-landscape"
+              />
+            </div>
+          </div>
+        </section>
       </Page>
     </>
   );

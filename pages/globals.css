@@ -9,13 +9,13 @@
 }
 
 html {
-  /* scroll-behavior: smooth;
-  overflow-y: scroll; */
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 body {
-  /* overscroll-behavior: none;
-  scroll-snap-type: y mandatory; */
+  overscroll-behavior: none;
+  scroll-snap-type: y mandatory;
   font-family: "Outfit", serif;
   background-color: #f6f6f2;
   /* background-color: rgb(255, 255, 255); */
@@ -143,10 +143,4 @@ footer {
   object-fit: cover;
   backface-visibility: hidden;
   transform: translateZ(0);
-}
-
-/* Clase personalizada para la transición con prefijo */
-.transition-all-webkit {
-  @apply transition-all duration-1000; /* Clase estándar de Tailwind */
-  -webkit-transition: all 1000ms; /* Prefijo manual */
 }

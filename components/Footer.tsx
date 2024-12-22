@@ -228,9 +228,9 @@ function Footer() {
               <p>Diseñado por</p>
             </div>
             <div>
-              <Link href={"https:/webdesign.arselara.com"}>
+              <a href={"https:/webdesign.arselara.com"}>
                 : webdesign.arselara.com
-              </Link>
+              </a>
             </div>
           </div>
         </motion.div>
