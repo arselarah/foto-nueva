@@ -272,7 +272,7 @@ function MasonryHome() {
                   flex justify-center items-center cursor-pointer pointer-events-none
                 "
                     >
-                      {image.title}
+                      {/* {image.title} */}
                     </span>
                   </Link>
                 </motion.div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { Historia as HistoriaType, historia } from "../data/historias";
+import React, { useState } from "react";
+import { HistoriaAll as HistoriaType, historiaAll } from "../data/historiasAll";
 import Page from "@/components/page";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -19,11 +19,13 @@ const playfairDisplay = Playfair_Display({
 });
 
 export default function historias() {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <>
       <Page>
         <motion.section
-          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden flex justify-center items-center bg-[#f6f6f2] z-[1]"
+          className="hero relative w-full min-h-[350px] h-[25svh] overflow-hidden flex justify-center items-center bg-[#f6f6f2] z-[1]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -45,27 +47,40 @@ export default function historias() {
         </motion.section>
 
         <section className=" relative  ">
-          <article className=" w-full h-auto grid grid-cols-1 xl:grid-cols-2 xl:grid-rows-2 xl:max-w-[100rem] mx-auto px-6 xl:px-20 py-[5rem] xl:py-[10rem] gap-40">
-            {historia.map((historia) => (
+          <article className=" w-full h-auto grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 pt-[5rem] md:pt-[10rem] pb-[2rem] md:pb-[5rem] gap-0">
+            {historiaAll.map((historiaAll) => (
               <div
-                key={historia.id}
-                className="relative w-full flex flex-col items-center gap-4"
+                key={historiaAll.id}
+                className="relative w-full flex flex-col items-center gap-4 group overflow-hidden"
               >
-                <div className="portada relative w-full aspect-2/3">
+                <div
+                  // className={`portada relative w-full aspect-2/3 bg-center transition-all duration-1000 `}
+                  className="portada relative w-full aspect-2/3 bg-center"
+                  // style={{ backgroundImage: `url(${historia.imageUrl})` }}
+                  // style={{
+                  //   backgroundImage: `url(${hovered ? historia.imageUrl2 : historia.imageUrl})`,
+                  // }}
+                  // onMouseEnter={() => setHovered(true)}
+                  // onMouseLeave={() => setHovered(false)}
+                >
                   <Image
-                    src={historia.imageUrl}
-                    alt={historia.title}
+                    src={historiaAll.imageUrl}
+                    alt={historiaAll.title}
                     fill
-                    className="object-cover "
+                    className="object-cover group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
-                <div className="titulos relative w-full text-center">
-                  <h3>{historia.title}</h3>
-                </div>
+
                 <Link
-                  className="absolute inset-0"
-                  href={`/historias/${historia.url}`}
+                  className="absolute inset-0 opacity-0 hover:opacity-100 bg-center bg-cover transition-all duration-700"
+                  href={`/historias/${historiaAll.url}`}
+                  style={{ backgroundImage: `url(${historiaAll.imageUrl2})` }}
                 />
+                <div className="titulos absolute bottom-8 w-full text-center mix-blend-difference pointer-events-none opacity-0 group-hover:opacity-100 group-hover:-translate-y-14 transition-all duration-700">
+                  <h3 className="text-white text-clamp-titles">
+                    {historiaAll.title}
+                  </h3>
+                </div>
               </div>
             ))}
           </article>

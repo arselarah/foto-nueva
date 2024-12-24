@@ -21,7 +21,7 @@ export default function portafolio() {
     <>
       <Page>
         <motion.section
-          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden flex justify-center items-center border-b-[1px] border-stone-400 bg-[#f6f6f2] z-[1]"
+          className="hero relative w-full min-h-[500px] h-[50svh] overflow-hidden flex justify-center items-center bg-[#f6f6f2] z-[1]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}

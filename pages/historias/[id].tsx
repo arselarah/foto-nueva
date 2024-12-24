@@ -1,17 +1,16 @@
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import { Historia as HistoriaType, historia } from "../../data/historias"; // Importa los datos de 'data/historias.ts'
+import {
+  HistoriaAll as HistoriaType,
+  historiaAll,
+} from "../../data/historiasAll"; // Importa los datos de 'data/historias.ts'
 import { GetStaticPaths, GetStaticProps } from "next";
 import Page from "@/components/page";
 import Image from "next/image";
-import { motion, useTransform, useScroll, useMotionValue } from "framer-motion";
-import { Cinzel, Outfit, Playfair_Display } from "next/font/google";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { Outfit, Playfair_Display } from "next/font/google";
 
 const outfit = Outfit({
-  subsets: ["latin"],
-});
-
-const cinzel = Cinzel({
   subsets: ["latin"],
 });
 
@@ -20,14 +19,14 @@ const playfairDisplay = Playfair_Display({
 });
 
 type HistoriaProps = {
-  historia: HistoriaType | null; // Historia o null si no se encuentra
+  historiaAll: HistoriaType | null; // Historia o null si no se encuentra
 };
 
-const HistoriaPage = ({ historia }: HistoriaProps) => {
+const HistoriaPage = ({ historiaAll }: HistoriaProps) => {
   const router = useRouter();
 
   // Si la página no tiene la historia correspondiente, mostramos un mensaje
-  if (!historia) {
+  if (!historiaAll) {
     return <div>Historia no encontrada</div>;
   }
 
@@ -108,8 +107,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
           >
             <Image
-              src={historia.imageUrl}
-              alt={historia.title}
+              src={historiaAll.imageUrl}
+              alt={historiaAll.title}
               fill
               className="object-cover"
             />
@@ -123,10 +122,10 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-clamp-titles-lg text-white">
-                {historia.title}
+                {historiaAll.title}
               </h1>
               {/* <p className="text-clamp-text-home-lg text-white mix-blend-difference">
-                {historia.shortText}
+                {historiaAll.shortText}
               </p> */}
             </motion.div>
           </motion.div>
@@ -140,7 +139,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className={`text-clamp-text-home-lg text-black text-center px-6 md:px-20 pt-[5rem] md:pt-[10rem] pb-[2rem] md:pb-[5rem] mx-auto max-w-[1920px] font-extralight ${outfit.className}`}
             >
-              {historia.shortText}
+              {historiaAll.shortText}
             </motion.h2>
           </div>
         </section>
@@ -154,8 +153,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               className="relative"
             >
               <Image
-                src={historia.imageUrl2}
-                alt={`${historia.title} 2`}
+                src={historiaAll.imageUrl2}
+                alt={`${historiaAll.title} 2`}
                 width={1080}
                 height={1920}
                 className="aspect-2/3 object-cover relative"
@@ -166,8 +165,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               className="relative "
             >
               <Image
-                src={historia.imageUrl3}
-                alt={`${historia.title} 3`}
+                src={historiaAll.imageUrl3}
+                alt={`${historiaAll.title} 3`}
                 width={1080}
                 height={1920}
                 className="aspect-2/3 object-cover relative"
@@ -178,8 +177,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               className="relative "
             >
               <Image
-                src={historia.imageUrl4}
-                alt={`${historia.title} 4`}
+                src={historiaAll.imageUrl4}
+                alt={`${historiaAll.title} 4`}
                 width={1080}
                 height={1920}
                 className="aspect-2/3 object-cover relative"
@@ -198,8 +197,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             >
               <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
-                  src={historia.imageUrl5}
-                  alt={`${historia.title} 5`}
+                  src={historiaAll.imageUrl5}
+                  alt={`${historiaAll.title} 5`}
                   width={1920}
                   height={1080}
                   // fill
@@ -208,8 +207,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               </div>
               <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
-                  src={historia.imageUrl6}
-                  alt={`${historia.title} 6`}
+                  src={historiaAll.imageUrl6}
+                  alt={`${historiaAll.title} 6`}
                   width={1920}
                   height={1080}
                   // fill
@@ -218,8 +217,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               </div>
               <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
-                  src={historia.imageUrl7}
-                  alt={`${historia.title} 7`}
+                  src={historiaAll.imageUrl7}
+                  alt={`${historiaAll.title} 7`}
                   width={1920}
                   height={1080}
                   // fill
@@ -228,8 +227,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
               </div>
               <div className="imagenItem flex justify-center items-center relative  snap-center">
                 <Image
-                  src={historia.imageUrl8}
-                  alt={`${historia.title} 8`}
+                  src={historiaAll.imageUrl8}
+                  alt={`${historiaAll.title} 8`}
                   width={1920}
                   height={1080}
                   // fill
@@ -242,7 +241,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
                 className={`${playfairDisplay.className} text-clamp-xl text-negro z-10 opacity-10 leading-[1] text-nowrap inline`}
                 style={{ marginLeft: positionLetters }}
               >
-                {historia.title}
+                {historiaAll.title}
               </motion.span>
             </div>
           </div>
@@ -253,8 +252,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
           <div className="relative grid grid-cols-1 lg:grid-cols-2 grid-rows-4 lg:grid-rows-2 gap-8">
             <div className="relative col-start-1 col-span-1 row-span-2">
               <Image
-                src={historia.imageUrl9}
-                alt={`${historia.title} 9`}
+                src={historiaAll.imageUrl9}
+                alt={`${historiaAll.title} 9`}
                 width={1920}
                 height={1080}
                 // fill
@@ -263,8 +262,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             </div>
             <div className="relative row-start-3 lg:row-start-1 lg:col-start-2 row-span-1">
               <Image
-                src={historia.imageUrl10}
-                alt={`${historia.title} 10`}
+                src={historiaAll.imageUrl10}
+                alt={`${historiaAll.title} 10`}
                 // width={1920}
                 // height={1080}
                 fill
@@ -273,8 +272,8 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             </div>
             <div className="relative row-start-4 lg:row-start-2 row-span-1 lg:col-start-2">
               <Image
-                src={historia.imageUrl11}
-                alt={`${historia.title} 11`}
+                src={historiaAll.imageUrl11}
+                alt={`${historiaAll.title} 11`}
                 // width={1920}
                 // height={1080}
                 fill
@@ -288,10 +287,10 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
   );
 };
 
-// `getStaticPaths` para generar rutas estáticas para todas las historias
+// `getStaticPaths` para generar rutas estáticas para todas las historiaAlls
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Creamos los paths usando el campo `url` de los objetos de `historia`
-  const paths = historia.map((h) => ({
+  // Creamos los paths usando el campo `url` de los objetos de `historiaAll`
+  const paths = historiaAll.map((h) => ({
     params: { id: h.url }, // Usamos el campo `url` como parámetro dinámico
   }));
 
@@ -301,18 +300,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-// `getStaticProps` para obtener los datos de la historia según el id
+// `getStaticProps` para obtener los datos de la historiaAll según el id
 export const getStaticProps: GetStaticProps<
   HistoriaProps,
   { id: string }
 > = async ({ params }) => {
   // Buscamos la historia usando el `id` que corresponde con el `url` de las historias
   const historiaSeleccionada =
-    historia.find((h) => h.url === params?.id) || null;
+    historiaAll.find((h) => h.url === params?.id) || null;
 
   return {
     props: {
-      historia: historiaSeleccionada, // Pasamos la historia encontrada como prop
+      historiaAll: historiaSeleccionada, // Pasamos la historia encontrada como prop
     },
   };
 };
