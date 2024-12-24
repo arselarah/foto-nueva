@@ -29,13 +29,13 @@ const Navbar = () => {
   return (
     <>
       <motion.header
-        className="fixed top-0 left-0 z-50 bg-transparent bg-clip-text  text-white w-full h-fit mix-blend-difference flex flex-row py-5"
+        className="fixed top-0 left-0 z-50 bg-transparent bg-clip-text  text-white w-full h-fit mix-blend-difference flex flex-row"
         initial={{ opacity: 0, y: -50, filter: "blur(10px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
       >
         <div className="w-full px-6 xl:px-20 h-[60px] flex items-center justify-between">
-          <div className="logo-prueba w-[250px] relative z-20 flex flex-row justify-start">
+          <div className="logo-prueba w-[250px] relative z-20 flex flex-row">
             <Link className="pr-4" href="/" passHref>
               <Image
                 className=""
@@ -46,7 +46,7 @@ const Navbar = () => {
               />
             </Link>
             <div className="hidden md:block">
-              <Link href="/" aria-label="Ir al inicio" className={` `}>
+              <Link href="/" aria-label="Ir al inicio" className={``}>
                 <h4
                   className={`text-xl uppercase tracking-[.5rem] ${cinzel.className}`}
                 >
@@ -60,7 +60,17 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-row grow gap-8 justify-end">
+          {/* <div className="reserve bg-white rounded-full px-4 py-2">
+            <div>
+              <Link
+                href={"/contacto"}
+                className="text-black uppercase font-semibold"
+              >
+                Reservación
+              </Link>
+            </div>
+          </div> */}
+          <div className="flex flex-row justify-end gap-8 w-36">
             <button
               className="relative h-[32px] flex flex-row items-center gap-4 z-20"
               onClick={() => setMenuOpen(!menuOpen)}

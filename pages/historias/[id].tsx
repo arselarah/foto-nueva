@@ -69,6 +69,25 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
     ["0%", "10%"]
   );
 
+  // const positionLetters = useTransform(scrollCarrusel, [0, 1], ["-25%", "55%"]);
+
+  const scaleRange = (
+    range: [string, string],
+    factor: number
+  ): [string, string] => {
+    return range.map((value) => {
+      const numericValue = parseFloat(value); // Convertir a número
+      if (isNaN(numericValue)) {
+        throw new Error(`El valor '${value}' no es un porcentaje válido.`);
+      }
+      return `${numericValue * factor}%`; // Multiplicar y volver a cadena con "%"
+    }) as [string, string]; // Asegurar que el resultado sea del tipo [string, string]
+  };
+
+  const scaledRange: [string, string] = scaleRange(["-55%", "55%"], 0.25);
+
+  const positionLetters = useTransform(scrollCarrusel, [0, 1], scaledRange);
+
   return (
     <>
       <Page>
@@ -144,7 +163,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             </motion.div>
             <motion.div
               // style={{ marginTop: positionChanger2 }}
-              className="relative"
+              className="relative "
             >
               <Image
                 src={historia.imageUrl3}
@@ -156,7 +175,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
             </motion.div>
             <motion.div
               style={{ marginTop: positionChanger3 }}
-              className="relative"
+              className="relative "
             >
               <Image
                 src={historia.imageUrl4}
@@ -169,7 +188,7 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
           </div>
         </section>
         <section
-          className="carrusel h-[500dvh] scroll-smooth will-change-auto snap-x snap-mandatory "
+          className="carrusel h-[300dvh] scroll-smooth will-change-auto snap-x snap-mandatory "
           ref={carruselRef}
         >
           <div className="contenedor h-[100dvh] sticky top-0 flex justify-start overflow-hidden">
@@ -218,6 +237,14 @@ const HistoriaPage = ({ historia }: HistoriaProps) => {
                 />
               </div>
             </motion.div>
+            <div className="fixed w-full h-full inset-0 top-0 left-0 flex justify-start items-end mix-blend-difference">
+              <motion.span
+                className={`${playfairDisplay.className} text-clamp-xl text-negro z-10 opacity-10 leading-[1] text-nowrap inline`}
+                style={{ marginLeft: positionLetters }}
+              >
+                {historia.title}
+              </motion.span>
+            </div>
           </div>
         </section>
         <section

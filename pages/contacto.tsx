@@ -154,19 +154,7 @@ export default function Contacto() {
           </div>
         </section>
         <section ref={containerRotate} className="bg-[#f6f6f2] z-[1] pb-[10%]">
-          <article
-            className="
-      relative
-      w-full
-      h-auto
-      flex
-      flex-col xl:flex-row
-      xl:max-w-[100rem]
-      mx-auto
-      px-6 xl:px-20 py-[5rem] xl:py-[10rem]
-      gap-40
-    "
-          >
+          <article className=" relative w-full h-auto flex flex-col xl:flex-row xl:max-w-[100rem] mx-auto px-6 xl:px-20 py-[5rem] xl:py-[10rem] gap-40 ">
             <form id="contact-form" className="space-y-4" onSubmit={sendEmail}>
               <div className="flex flex-row flex-wrap gap-8 place-content-center place-items-center">
                 <div className="flex">

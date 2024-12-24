@@ -225,6 +225,7 @@ function MasonryHome() {
       text-white
       px-6 md:px-20 pt-[5rem] md:pt-[10rem]
       ${playfairDisplay.className}
+      mix-blend-difference
     `}
         >
           Momentos

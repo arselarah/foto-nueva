@@ -26,6 +26,7 @@ const config: Config = {
         "1500": "1500ms",
       },
       fontSize: {
+        "clamp-xl": "clamp(4rem, 9vw, 10.5rem)",
         "clamp-lg": "clamp(1.5rem, 2.5vw, 3rem)",
         "clamp-md": "clamp(1rem, 2vw, 2rem)",
         "clamp-sm": "clamp(0.875rem, 1.5vw, 1.5rem)",
