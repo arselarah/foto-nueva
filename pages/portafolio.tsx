@@ -3,6 +3,7 @@ import Page from "@/components/page";
 import { motion } from "framer-motion";
 import { Cinzel, Outfit, Playfair_Display } from "next/font/google";
 import MasonryHome from "@/components/MasonryHome";
+import PortafolioAll from "@/components/PortafolioAll";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,7 +43,7 @@ export default function portafolio() {
           </motion.div>
         </motion.section>
         <section>
-          <MasonryHome />
+          <PortafolioAll />
         </section>
       </Page>
     </>

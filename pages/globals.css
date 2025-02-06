@@ -144,3 +144,7 @@ footer {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+.background-blur {
+  backdrop-filter: blur(15px);
+}
