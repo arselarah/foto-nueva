@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,6 +25,26 @@ const Navbar = () => {
       transition: { delay: i * 0.15, duration: 0.6 },
     }),
   };
+
+  useEffect(() => {
+  if (menuOpen) {
+    const scrollY = window.scrollY;
+    document.body.style.top = `-${scrollY}px`;
+    document.body.classList.add("menu-open");
+  } else {
+    const scrollY = document.body.style.top;
+    document.body.classList.remove("menu-open");
+    document.body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  }
+
+  return () => {
+    document.body.classList.remove("menu-open");
+    document.body.style.top = "";
+  };
+}, [menuOpen]);
+
+
 
   return (
     <>
