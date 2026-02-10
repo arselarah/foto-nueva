@@ -4,6 +4,7 @@ import type { Configuration } from "webpack";
 
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: false,
   images: {
     unoptimized: true,
   },
