@@ -9,8 +9,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   overflow-y: scroll;
+}
+html,
+body {
+  scroll-behavior: auto;
 }
 
 body {

@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
+    "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^11.11.9",
     "locomotive-scroll": "^4.1.4",
     "next": "^15.0.4",
@@ -25,7 +26,7 @@
     "@types/react-dom": "^18",
     "@types/webpack": "^5.28.5",
     "file-loader": "^6.2.0",
-    "image-webpack-loader": "^8.1.0",
+    "image-webpack-loader": "^8.0.1",
     "postcss": "^8",
     "prettier": "^3.4.1",
     "tailwindcss": "^3.4.1",
