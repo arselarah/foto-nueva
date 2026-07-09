@@ -107,4 +107,22 @@ export const historiaAll: HistoriaAll[] = [
     imageUrl11: "/assets/historias/selmi&david/selmi-david-5.webp",
     url: "boda-selmi-david",
   },
+  {
+    id: 6,
+    title: "Lorena & Diego",
+    shortText:
+      "“La fotografía toma un instante fuera del tiempo, alterando la vida manteniéndola quieta”.",
+    imageUrl: "/assets/historias/lorena&diego/lorena-diego-3.webp",
+    imageUrl2: "/assets/historias/lorena&diego/lorena-diego-6.webp",
+    imageUrl3: "/assets/historias/lorena&diego/lorena-diego-3.webp",
+    imageUrl4: "/assets/historias/lorena&diego/lorena-diego-4.webp",
+    imageUrl5: "/assets/historias/lorena&diego/lorena-diego-5.webp",
+    imageUrl6: "/assets/historias/lorena&diego/lorena-diego-6.webp",
+    imageUrl7: "/assets/historias/lorena&diego/lorena-diego-3.webp",
+    imageUrl8: "/assets/historias/lorena&diego/lorena-diego-4.webp",
+    imageUrl9: "/assets/historias/lorena&diego/lorena-diego-1.webp",
+    imageUrl10: "/assets/historias/lorena&diego/lorena-diego-1.webp",
+    imageUrl11: "/assets/historias/lorena&diego/lorena-diego-5.webp",
+    url: "boda-lorena-diego",
+  },
 ];
